@@ -1,5 +1,5 @@
 import "./HeroSection.css";
-
+import pblogo from "/src/assets/PB_LOGO.svg"
 const HeroSection = () => {
     return (
         <section className="hero-section">
@@ -11,7 +11,7 @@ const HeroSection = () => {
             <header className="hero-nav">
                 <div className="hero-logo">
                     <img
-                        src="/src/assets/PB_LOGO.svg"
+                        src={pblogo}
                         alt="Prahlad Bathre"
                     />
                 </div>
