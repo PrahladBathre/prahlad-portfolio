@@ -1,0 +1,278 @@
+<svg
+    width="100"
+    height="100"
+    viewBox="0 0 460 460"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <defs>
+        <!-- Main cosmic gradient -->
+        <linearGradient
+            id="pbGradient"
+            x1="90"
+            y1="80"
+            x2="430"
+            y2="430"
+            gradientUnits="userSpaceOnUse"
+        >
+            <stop offset="0" stop-color="#FFFFFF"/>
+            <stop offset="0.42" stop-color="#C9A7FF"/>
+            <stop offset="0.72" stop-color="#8B5CF6"/>
+            <stop offset="1" stop-color="#4C1D95"/>
+        </linearGradient>
+
+        <!-- Blue-violet accent -->
+        <linearGradient
+            id="orbitGradient"
+            x1="70"
+            y1="420"
+            x2="440"
+            y2="80"
+            gradientUnits="userSpaceOnUse"
+        >
+            <stop offset="0" stop-color="#2563EB"/>
+            <stop offset="0.5" stop-color="#8B5CF6"/>
+            <stop offset="1" stop-color="#C084FC"/>
+        </linearGradient>
+
+        <!-- Soft cosmic glow -->
+        <filter
+            id="glow"
+            x="-50%"
+            y="-50%"
+            width="200%"
+            height="200%"
+        >
+            <feGaussianBlur
+                stdDeviation="8"
+                result="blur"
+            />
+
+            <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+
+        <!-- Small star glow -->
+        <filter
+            id="starGlow"
+            x="-300%"
+            y="-300%"
+            width="600%"
+            height="600%"
+        >
+            <feGaussianBlur
+                stdDeviation="2"
+                result="blur"
+            />
+
+            <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+
+    <!-- ========================================= -->
+    <!-- COSMIC ORBIT -->
+    <!-- ========================================= -->
+
+    <ellipse
+        cx="256"
+        cy="256"
+        rx="215"
+        ry="105"
+        transform="rotate(-28 256 256)"
+        stroke="url(#orbitGradient)"
+        stroke-width="3"
+        stroke-linecap="round"
+        opacity="0.75"
+    />
+
+    <ellipse
+        cx="256"
+        cy="256"
+        rx="215"
+        ry="105"
+        transform="rotate(42 256 256)"
+        stroke="url(#orbitGradient)"
+        stroke-width="2"
+        stroke-linecap="round"
+        opacity="0.35"
+    />
+
+    <!-- ========================================= -->
+    <!-- PB LETTERMARK -->
+    <!-- ========================================= -->
+
+    <!-- P -->
+
+    <path
+        d="
+            M145 365
+            V147
+
+            H218
+
+            C270 147
+            298 175
+            298 218
+
+            C298 261
+            270 289
+            218 289
+
+            H178
+            V365
+
+            H145
+
+            Z
+
+            M178 177
+            V259
+
+            H214
+
+            C247 259
+            264 245
+            264 218
+
+            C264 191
+            247 177
+            214 177
+
+            H178
+
+            Z
+        "
+        fill="url(#pbGradient)"
+    />
+
+    <!-- B -->
+
+    <path
+        d="
+            M270 147
+            H330
+
+            C375 147
+            399 168
+            399 202
+
+            C399 224
+            388 241
+            369 251
+
+            C393 260
+            407 279
+            407 304
+
+            C407 343
+            379 365
+            330 365
+
+            H270
+
+            V335
+
+            H326
+
+            C357 335
+            373 323
+            373 302
+
+            C373 281
+            357 269
+            326 269
+
+            H300
+            V240
+
+            H323
+
+            C351 240
+            365 228
+            365 205
+
+            C365 185
+            350 177
+            323 177
+
+            H270
+
+            V147
+
+            Z
+        "
+        fill="url(#pbGradient)"
+    />
+
+    <!-- ========================================= -->
+    <!-- COSMIC CENTER -->
+    <!-- ========================================= -->
+
+    <circle
+        cx="256"
+        cy="256"
+        r="7"
+        fill="#FFFFFF"
+        filter="url(#starGlow)"
+    />
+
+    <!-- ========================================= -->
+    <!-- ORBITAL PARTICLE -->
+    <!-- ========================================= -->
+
+    <circle
+        cx="414"
+        cy="165"
+        r="6"
+        fill="#C084FC"
+        filter="url(#glow)"
+    />
+
+    <circle
+        cx="414"
+        cy="165"
+        r="2.5"
+        fill="#FFFFFF"
+    />
+
+    <!-- ========================================= -->
+    <!-- SMALL STARS -->
+    <!-- ========================================= -->
+
+    <circle
+        cx="105"
+        cy="112"
+        r="2"
+        fill="#FFFFFF"
+        opacity="0.8"
+    />
+
+    <circle
+        cx="398"
+        cy="380"
+        r="2"
+        fill="#C4B5FD"
+        opacity="0.7"
+    />
+
+    <circle
+        cx="116"
+        cy="392"
+        r="1.5"
+        fill="#93C5FD"
+        opacity="0.7"
+    />
+
+    <circle
+        cx="380"
+        cy="105"
+        r="1.5"
+        fill="#FFFFFF"
+        opacity="0.65"
+    />
+</svg>

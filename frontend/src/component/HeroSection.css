@@ -1,0 +1,691 @@
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 72% 48%,
+            rgba(100, 45, 180, 0.18),
+            transparent 24%),
+        radial-gradient(circle at 20% 80%,
+            rgba(35, 80, 180, 0.12),
+            transparent 28%),
+        #020107;
+    color: #f5f2ff;
+    font-family:
+        "Inter",
+        "SF Pro Display",
+        "Segoe UI",
+        Roboto,
+        sans-serif;
+}
+
+/*
+==================================================
+STARS
+==================================================
+*/
+
+.hero-stars {
+    position: absolute;
+    inset: 0;
+    opacity: 0.65;
+    background-image:
+        radial-gradient(circle,
+            rgba(255, 255, 255, 0.8) 1px,
+            transparent 1px);
+    background-size: 180px 180px;
+    background-position: 20px 30px;
+    pointer-events: none;
+}
+
+/*
+==================================================
+NEBULA
+==================================================
+*/
+
+.hero-nebula {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    will-change:
+        transform,
+        opacity;
+}
+
+.hero-nebula-one {
+    width: 420px;
+    height: 420px;
+    right: 5%;
+    top: 20%;
+    background:
+        rgba(105, 35, 220, 0.14);
+    animation:
+        nebulaFloatOne 18s ease-in-out infinite;
+}
+
+.hero-nebula-two {
+    width: 300px;
+    height: 300px;
+    left: 5%;
+    bottom: 5%;
+    background:
+        rgba(40, 90, 220, 0.1);
+    animation:
+        nebulaFloatTwo 23s ease-in-out infinite;
+}
+
+/*
+==================================================
+NAVIGATION
+==================================================
+*/
+
+.hero-nav {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:
+        min(1400px,
+            calc(100% - 80px));
+    margin: 0 auto;
+    padding-top: 32px;
+}
+
+.hero-logo {
+    display: flex;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    overflow: hidden;
+}
+
+.hero-logo img {
+    display: block;
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+.hero-links {
+    display: flex;
+    gap: 36px;
+}
+
+.hero-links a {
+    position: relative;
+    color:
+        rgba(245, 242, 255, 0.62);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-decoration: none;
+    transition:
+        color 0.3s ease;
+}
+
+.hero-links a:hover {
+    color: #ffffff;
+}
+
+/*
+==================================================
+HERO CONTENT
+==================================================
+*/
+
+.hero-content {
+    position: relative;
+    z-index: 4;
+    width:
+        min(1400px,
+            calc(100% - 80px));
+    margin: 0 auto;
+    padding-top: 18vh;
+}
+
+.hero-eyebrow {
+    margin: 0 0 26px;
+    color:
+        rgba(183, 143, 255, 0.86);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.hero-content h1 {
+    margin: 0;
+    max-width: 900px;
+    font-size:
+        clamp(64px,
+            8vw,
+            128px);
+    line-height: 0.88;
+    font-weight: 600;
+    letter-spacing: -0.07em;
+    text-wrap: balance;
+}
+
+.hero-content h1 span {
+    color:
+        rgba(245, 242, 255, 0.38);
+    font-weight: 500;
+}
+
+.hero-description {
+    max-width: 620px;
+    margin:
+        36px 0 0;
+    color:
+        rgba(245, 242, 255, 0.58);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: 0.005em;
+}
+
+/*
+==================================================
+BUTTONS
+==================================================
+*/
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 42px;
+}
+
+.hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px;
+    padding:
+        14px 20px;
+    border:
+        1px solid rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-decoration: none;
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.hero-button span {
+    margin-left: 10px;
+    font-size: 15px;
+    letter-spacing: 0;
+}
+
+.hero-button-primary {
+    background:
+        rgba(255, 255, 255, 0.08);
+}
+
+.hero-button-secondary {
+    color:
+        rgba(255, 255, 255, 0.65);
+}
+
+.hero-button:hover {
+    border-color:
+        rgba(255, 255, 255, 0.5);
+    transform:
+        translateY(-2px);
+}
+
+.hero-button-primary:hover {
+    background:
+        rgba(255, 255, 255, 0.14);
+}
+
+/*
+==================================================
+ORBIT SYSTEM
+==================================================
+*/
+
+.hero-orbit {
+    position: absolute;
+    z-index: 2;
+
+    /*
+    Fixed vertical anchor.
+    This does NOT depend on viewport height.
+    */
+    top: 100px;
+    right: 14%;
+
+    width: 430px;
+    height: 430px;
+
+    pointer-events: none;
+}
+
+/*
+--------------------------------------------------
+ORBIT CORE
+--------------------------------------------------
+*/
+
+.hero-orbit-core {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 125px;
+    height: 125px;
+    transform:
+        translate(-50%, -50%);
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 35% 30%,
+            #b77cff,
+            #42108d 45%,
+            #09020f 75%);
+    box-shadow:
+        0 0 45px rgba(130, 55, 255, 0.45),
+        0 0 120px rgba(90, 30, 220, 0.18);
+    will-change:
+        transform,
+        box-shadow;
+    animation:
+        corePulse 4.5s ease-in-out infinite;
+}
+
+.hero-core-glow {
+    position: absolute;
+    inset: -35px;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle,
+            rgba(155, 85, 255, 0.2),
+            transparent 68%);
+    will-change:
+        transform,
+        opacity;
+    animation:
+        coreGlow 3.5s ease-in-out infinite;
+}
+
+/*
+--------------------------------------------------
+ORBIT RINGS
+--------------------------------------------------
+*/
+
+.hero-orbit-ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border:
+        1px solid rgba(157, 105, 255, 0.25);
+    border-radius: 50%;
+    box-shadow:
+        0 0 20px rgba(120, 60, 255, 0.08);
+    will-change:
+        transform,
+        opacity;
+}
+
+.hero-orbit-ring-one {
+    width: 320px;
+    height: 130px;
+    animation:
+        orbitRotateOne 18s linear infinite;
+}
+
+.hero-orbit-ring-two {
+    width: 390px;
+    height: 180px;
+    animation:
+        orbitRotateTwo 26s linear infinite;
+}
+
+/*
+==================================================
+SCROLL INDICATOR
+==================================================
+*/
+
+.hero-scroll {
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    bottom: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transform:
+        translateX(-50%);
+}
+
+.hero-scroll span {
+    width: 1px;
+    height: 34px;
+    background:
+        linear-gradient(to bottom,
+            transparent,
+            rgba(255, 255, 255, 0.65));
+}
+
+.hero-scroll p {
+    margin: 0;
+    color:
+        rgba(255, 255, 255, 0.38);
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    white-space: nowrap;
+}
+
+/*
+==================================================
+ANIMATIONS
+==================================================
+*/
+
+@keyframes nebulaFloatOne {
+    0% {
+        transform:
+            translate3d(0, 0, 0) scale(1);
+        opacity: 0.7;
+    }
+
+    25% {
+        transform:
+            translate3d(-25px, 18px, 0) scale(1.06);
+        opacity: 0.85;
+    }
+
+    50% {
+        transform:
+            translate3d(20px, -22px, 0) scale(0.96);
+        opacity: 0.65;
+    }
+
+    75% {
+        transform:
+            translate3d(-12px, -8px, 0) scale(1.04);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform:
+            translate3d(0, 0, 0) scale(1);
+        opacity: 0.7;
+    }
+}
+
+@keyframes nebulaFloatMobile {
+    0% {
+        transform:
+            translateX(-50%) translate3d(0, 0, 0) scale(1);
+        opacity: 0.65;
+    }
+
+    25% {
+        transform:
+            translateX(-50%) translate3d(-12px, 10px, 0) scale(1.05);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform:
+            translateX(-50%) translate3d(10px, -8px, 0) scale(0.96);
+        opacity: 0.6;
+    }
+
+    75% {
+        transform:
+            translateX(-50%) translate3d(-6px, -4px, 0) scale(1.03);
+        opacity: 0.75;
+    }
+
+    100% {
+        transform:
+            translateX(-50%) translate3d(0, 0, 0) scale(1);
+        opacity: 0.65;
+    }
+}
+
+@keyframes nebulaFloatTwo {
+    0% {
+        transform:
+            translate3d(0, 0, 0) scale(1);
+        opacity: 0.55;
+    }
+
+    30% {
+        transform:
+            translate3d(28px, -18px, 0) scale(1.08);
+        opacity: 0.75;
+    }
+
+    60% {
+        transform:
+            translate3d(-18px, -30px, 0) scale(0.94);
+        opacity: 0.5;
+    }
+
+    80% {
+        transform:
+            translate3d(12px, 10px, 0) scale(1.04);
+        opacity: 0.68;
+    }
+
+    100% {
+        transform:
+            translate3d(0, 0, 0) scale(1);
+        opacity: 0.55;
+    }
+}
+
+@keyframes orbitRotateOne {
+    from {
+        transform:
+            translate(-50%, -50%) rotate(-20deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%) rotate(340deg);
+    }
+}
+
+@keyframes orbitRotateTwo {
+    from {
+        transform:
+            translate(-50%, -50%) rotate(35deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%) rotate(-325deg);
+    }
+}
+
+@keyframes corePulse {
+
+    0%,
+    100% {
+        transform:
+            translate(-50%, -50%) scale(1);
+        box-shadow:
+            0 0 45px rgba(130, 55, 255, 0.45),
+            0 0 120px rgba(90, 30, 220, 0.18);
+    }
+
+    50% {
+        transform:
+            translate(-50%, -50%) scale(1.045);
+        box-shadow:
+            0 0 58px rgba(130, 55, 255, 0.55),
+            0 0 145px rgba(90, 30, 220, 0.24);
+    }
+}
+
+@keyframes coreGlow {
+
+    0%,
+    100% {
+        transform: scale(0.92);
+        opacity: 0.55;
+    }
+
+    50% {
+        transform: scale(1.12);
+        opacity: 0.9;
+    }
+}
+
+/*
+==================================================
+TABLET
+==================================================
+*/
+
+@media (max-width: 900px) {
+
+    .hero-nav,
+    .hero-content {
+        width:
+            calc(100% - 40px);
+    }
+
+    .hero-content {
+        padding-top: 15vh;
+    }
+
+    .hero-content h1 {
+        font-size:
+            clamp(52px,
+                13vw,
+                90px);
+    }
+
+    .hero-orbit {
+        position: absolute;
+        top: 40px;
+        right: 0px;
+        width: 360px;
+        height: 360px;
+        opacity: 0.65;
+    }
+
+    .hero-nebula-one {
+        width: 300px;
+        height: 300px;
+        right: -20px;
+        top: 34%;
+        filter: blur(65px);
+    }
+
+    .hero-scroll {
+        bottom: 10px;
+    }
+}
+
+/*
+==================================================
+MOBILE
+==================================================
+*/
+
+@media (max-width: 600px) {
+    .hero-section {
+        height: 900px;
+
+    }
+
+    .hero-links {
+        gap: 16px;
+    }
+
+    .hero-links a {
+        font-size: 9px;
+    }
+
+    .hero-content {
+        padding-top: 13vh;
+    }
+
+    .hero-content h1 {
+        font-size:
+            clamp(48px,
+                14vw,
+                72px);
+        line-height: 0.9;
+    }
+
+    .hero-description {
+        max-width: 440px;
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /*
+    Mobile orbit is centered using a fixed
+    vertical anchor instead of viewport percentage.
+    */
+    .hero-orbit {
+        top: auto;
+        right: auto;
+        left: 50%;
+        width: 320px;
+        height: 320px;
+        transform:
+            translateX(-50%);
+        opacity: 0.45;
+    }
+
+    .hero-nebula-one {
+        width: 230px;
+        height: 230px;
+        left: 50%;
+        right: auto;
+        top: 62%;
+        filter: blur(55px);
+        animation:
+            nebulaFloatMobile 18s ease-in-out infinite;
+    }
+
+    .hero-scroll {
+        visibility: hidden;
+    }
+}
+
+/*
+==================================================
+REDUCED MOTION
+==================================================
+*/
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-nebula-one,
+    .hero-nebula-two,
+    .hero-orbit-ring-one,
+    .hero-orbit-ring-two,
+    .hero-orbit-core,
+    .hero-core-glow {
+        animation: none;
+    }
+}

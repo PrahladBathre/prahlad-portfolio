@@ -1,0 +1,616 @@
+#work {
+    margin-top: 4px;
+    margin-left: 2px;
+    padding-top: 4px;
+    padding-left: 2px;
+}
+
+.work-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding:
+        44px max(40px, 7vw) 20px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 78% 35%,
+            rgba(105, 45, 220, 0.08),
+            transparent 28%),
+        radial-gradient(circle at 15% 75%,
+            rgba(35, 80, 180, 0.06),
+            transparent 25%),
+        #020107;
+    color: #f5f2ff;
+    font-family:
+        "Inter",
+        "SF Pro Display",
+        "Segoe UI",
+        Roboto,
+        sans-serif;
+}
+
+/*
+==================================================
+HEADER
+==================================================
+*/
+
+.work-header {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto 60px;
+}
+
+
+.work-eyebrow {
+    margin: 0 0 28px;
+    color:
+        rgba(183, 143, 255, 0.78);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+}
+
+.work-header h2 {
+    margin: 0;
+    max-width: 800px;
+    font-size:
+        clamp(58px,
+            7vw,
+            108px);
+    line-height: 0.9;
+    font-weight: 600;
+    letter-spacing: -0.065em;
+}
+
+.work-header h2 span {
+    color:
+        rgba(245, 242, 255, 0.32);
+    font-weight: 500;
+}
+
+/*
+==================================================
+PROJECT
+==================================================
+*/
+
+.project-feature {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+    border-top:
+        1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 24px;
+}
+
+/*
+==================================================
+PROJECT SEPARATION
+==================================================
+*/
+
+.project-feature+.project-feature {
+    margin-top: 180px;
+}
+
+/*
+==================================================
+PROJECT META
+==================================================
+*/
+
+.project-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 55px;
+}
+
+.project-number {
+    color:
+        rgba(255, 255, 255, 0.35);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+}
+
+.project-status {
+    color:
+        rgba(183, 143, 255, 0.7);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+}
+
+/*
+==================================================
+PROJECT CONTENT
+==================================================
+*/
+
+.project-content {
+    display: grid;
+    grid-template-columns:
+        minmax(300px, 0.85fr) minmax(450px, 1.15fr);
+    gap: 9vw;
+    align-items: center;
+}
+
+/*
+==================================================
+PROJECT INFO
+==================================================
+*/
+
+.project-info {
+    max-width: 650px;
+}
+
+.project-category {
+    margin: 0 0 20px;
+    color:
+        rgba(183, 143, 255, 0.72);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    line-height: 1.4;
+}
+
+.project-info h3 {
+    margin: 0;
+    font-size:
+        clamp(64px,
+            8vw,
+            120px);
+    line-height: 0.85;
+    font-weight: 600;
+    letter-spacing: -0.07em;
+}
+
+.project-description {
+    max-width: 540px;
+    margin:
+        38px 0 0;
+    color:
+        rgba(245, 242, 255, 0.55);
+    font-size: 15px;
+    line-height: 1.8;
+    letter-spacing: 0.005em;
+}
+
+/*
+==================================================
+FEATURE TAGS
+==================================================
+*/
+
+.project-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 32px;
+}
+
+.project-features span {
+    padding:
+        8px 11px;
+    border:
+        1px solid rgba(255, 255, 255, 0.1);
+    color:
+        rgba(255, 255, 255, 0.48);
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+}
+
+/*
+==================================================
+TECH STACK
+==================================================
+*/
+
+.project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.project-stack span {
+    position: relative;
+    color:
+        rgba(255, 255, 255, 0.35);
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+}
+
+.project-stack span:not(:last-child)::after {
+    content: "•";
+    position: absolute;
+    right: -12px;
+    color:
+        rgba(183, 143, 255, 0.45);
+}
+
+/*
+==================================================
+PROJECT ACTIONS
+==================================================
+*/
+
+.project-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 42px;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    min-width: 120px;
+    padding:
+        13px 17px;
+    border:
+        1px solid rgba(255, 255, 255, 0.14);
+    color:
+        rgba(255, 255, 255, 0.62);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-decoration: none;
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.project-link span {
+    margin-left: 9px;
+    font-size: 14px;
+    letter-spacing: 0;
+}
+
+.project-link-primary {
+    color: #ffffff;
+    background:
+        rgba(255, 255, 255, 0.07);
+}
+
+.project-link:hover {
+    color: #ffffff;
+    border-color:
+        rgba(255, 255, 255, 0.4);
+    background:
+        rgba(255, 255, 255, 0.08);
+    transform:
+        translateY(-2px);
+}
+
+/*
+==================================================
+PROJECT VISUAL
+==================================================
+*/
+
+.project-visual {
+    position: relative;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*
+==================================================
+SCREENSHOT FRAME
+==================================================
+*/
+
+.project-visual-frame {
+    position: relative;
+    width: min(100%, 700px);
+    aspect-ratio: 16 / 10;
+    padding: 12px;
+    border:
+        1px solid rgba(157, 105, 255, 0.25);
+    background:
+        rgba(255, 255, 255, 0.025);
+    box-shadow:
+        0 0 80px rgba(90, 30, 220, 0.12);
+    transform:
+        perspective(1200px) rotateY(-7deg) rotateX(2deg);
+    transition:
+        transform 0.8s cubic-bezier(0.16,
+            1,
+            0.3,
+            1);
+}
+
+.project-visual-frame:hover {
+    transform:
+        perspective(1200px) rotateY(-2deg) rotateX(0deg) translateY(-5px);
+}
+
+.project-visual-frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(135deg,
+            rgba(183, 143, 255, 0.08),
+            transparent 35%,
+            transparent 70%,
+            rgba(80, 130, 255, 0.05));
+    pointer-events: none;
+}
+
+.project-visual-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border:
+        1px solid rgba(255, 255, 255, 0.06);
+    background:
+        radial-gradient(circle at center,
+            rgba(100, 40, 210, 0.1),
+            transparent 55%);
+    color:
+        rgba(255, 255, 255, 0.45);
+}
+
+.project-visual-placeholder span {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+}
+
+.project-visual-placeholder small {
+    color:
+        rgba(255, 255, 255, 0.25);
+    font-size: 7px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+}
+
+/*
+==================================================
+SYSTEM NODES
+==================================================
+*/
+
+.system-node {
+    position: absolute;
+    padding:
+        9px 13px;
+    border:
+        1px solid rgba(157, 105, 255, 0.22);
+    background:
+        rgba(2, 1, 7, 0.8);
+    box-shadow:
+        0 0 25px rgba(100, 40, 220, 0.08);
+    color:
+        rgba(255, 255, 255, 0.42);
+    font-size: 7px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    backdrop-filter: blur(10px);
+    animation:
+        systemNodeFloat 5s ease-in-out infinite;
+}
+
+.system-node-one {
+    top: 7%;
+    left: 4%;
+}
+
+.system-node-two {
+    right: 2%;
+    top: 17%;
+    animation-delay: -1.5s;
+}
+
+.system-node-three {
+    left: 0;
+    bottom: 18%;
+    animation-delay: -3s;
+}
+
+.system-node-four {
+    right: 7%;
+    bottom: 8%;
+    animation-delay: -4s;
+}
+
+@keyframes systemNodeFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-7px);
+    }
+}
+
+/*
+==================================================
+RESPONSIVE
+==================================================
+*/
+
+@media (max-width: 900px) {
+
+    .work-section {
+        padding:
+            130px 40px 150px;
+    }
+
+    .project-feature+.project-feature {
+        margin-top: 130px;
+    }
+
+    .project-content {
+        grid-template-columns: 1fr;
+        gap: 70px;
+    }
+
+    .project-info {
+        max-width: 700px;
+    }
+
+    .project-visual {
+        min-height: 480px;
+    }
+
+    .project-visual-frame {
+        width: min(100%, 700px);
+    }
+
+    .work-header {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .work-section {
+        padding:
+            110px 20px 30px;
+    }
+
+    .project-feature+.project-feature {
+        margin-top: 36px;
+    }
+
+    .work-header {
+        margin-bottom: 40px;
+    }
+
+    .work-header h2 {
+        font-size:
+            clamp(52px,
+                15vw,
+                80px);
+    }
+
+    .project-meta {
+        margin-bottom: 40px;
+    }
+
+    .project-info h3 {
+        font-size:
+            clamp(58px,
+                17vw,
+                82px);
+    }
+
+    .project-description {
+        font-size: 14px;
+    }
+
+    .project-visual {
+        min-height: 360px;
+    }
+
+    .project-visual-frame {
+        transform:
+            perspective(1000px) rotateY(-4deg) rotateX(1deg);
+    }
+
+    .system-node {
+        font-size: 6px;
+        padding:
+            7px 9px;
+    }
+
+    .system-node-one {
+        top: 3%;
+    }
+
+    .system-node-two {
+        right: 0;
+        top: 12%;
+    }
+
+    .system-node-three {
+        left: -2%;
+        bottom: 15%;
+    }
+
+    .system-node-four {
+        right: 0;
+        bottom: 5%;
+    }
+
+    .project-actions {
+        flex-wrap: wrap;
+    }
+}
+
+/*
+==================================================
+CAMPSYNC SCREENSHOTS
+==================================================
+*/
+
+.campsync-visual-frame {
+    overflow: hidden;
+}
+
+.campsync-screenshot {
+    position: absolute;
+    inset: 12px;
+    overflow: hidden;
+    border:
+        1px solid rgba(255, 255, 255, 0.06);
+    opacity: 0;
+    animation:
+        campsyncScreenshotCycle 10s ease-in-out infinite;
+}
+
+.campsync-screenshot img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.campsync-screenshot-one {
+    animation-delay: 0s;
+}
+
+.campsync-screenshot-two {
+    animation-delay: -5s;
+}
+
+@keyframes campsyncScreenshotCycle {
+
+    0%,
+    42% {
+        opacity: 1;
+    }
+
+    50%,
+    92% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
