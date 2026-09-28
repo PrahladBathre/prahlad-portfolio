@@ -6,7 +6,7 @@ The portfolio is designed around a **digital architecture / system interface** c
 
 ## 🌐 Live Website
 
-**Portfolio:** https://your-vercel-domain.vercel.app
+**Portfolio:** [https://your-vercel-domain.vercel.app](https://prahlad-portfolio-beta.vercel.app/)
 
 > Replace the URL above with the final Vercel domain.
 
