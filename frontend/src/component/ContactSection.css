@@ -557,3 +557,316 @@
         animation: none;
     }
 }
+
+
+/* ==================================================
+   CONTACT FORM
+   ================================================== */
+
+.contact-form {
+    width: 100%;
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid rgba(150, 100, 255, 0.14);
+}
+
+
+/* ==================================================
+   FORM FIELD
+   ================================================== */
+
+.form-field {
+    position: relative;
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    align-items: center;
+    min-height: 82px;
+    border-bottom: 1px solid rgba(150, 100, 255, 0.14);
+}
+
+
+.form-field label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    color: rgba(255, 255, 255, 0.32);
+}
+
+
+/* ==================================================
+   INPUT / TEXTAREA
+   ================================================== */
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+
+    color: rgba(255, 255, 255, 0.88);
+
+    caret-color: rgba(180, 130, 255, 0.95);
+
+    transition:
+        color 0.3s ease;
+}
+
+
+.form-field input {
+    height: 100%;
+}
+
+
+.form-field textarea {
+    min-height: 130px;
+    padding: 28px 0;
+    resize: vertical;
+    line-height: 1.7;
+}
+
+
+/* ==================================================
+   PLACEHOLDER
+   ================================================== */
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+    color: rgba(255, 255, 255, 0.16);
+    opacity: 1;
+    transition:
+        color 0.3s ease;
+}
+
+
+.form-field:focus-within input::placeholder,
+.form-field:focus-within textarea::placeholder {
+    color: rgba(255, 255, 255, 0.22);
+}
+
+
+/* ==================================================
+   FOCUS LINE
+   ================================================== */
+
+.form-field::after {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    bottom: -1px;
+
+    width: 0;
+    height: 1px;
+
+    background: rgba(180, 130, 255, 0.75);
+
+    box-shadow:
+        0 0 12px rgba(160, 110, 255, 0.45);
+
+    transition:
+        width 0.5s ease;
+}
+
+
+.form-field:focus-within::after {
+    width: 100%;
+}
+
+
+/* ==================================================
+   SUBMIT BUTTON
+   ================================================== */
+
+.contact-submit {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    min-height: 86px;
+
+    margin-top: 0;
+    padding: 0 20px;
+
+    border: none;
+    border-bottom: 1px solid rgba(150, 100, 255, 0.14);
+
+    background: transparent;
+
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+
+    color: rgba(255, 255, 255, 0.55);
+
+    cursor: pointer;
+
+    transition:
+        color 0.3s ease,
+        padding 0.4s ease,
+        background 0.4s ease;
+}
+
+
+/* ==================================================
+   SUBMIT HOVER LINE
+   ================================================== */
+
+.contact-submit::before {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    bottom: -1px;
+
+    width: 0;
+    height: 1px;
+
+    background: rgba(180, 130, 255, 0.75);
+
+    box-shadow:
+        0 0 12px rgba(160, 110, 255, 0.45);
+
+    transition:
+        width 0.5s ease;
+}
+
+
+.contact-submit:hover {
+    padding-left: 30px;
+
+    color: rgba(255, 255, 255, 0.95);
+
+    background:
+        linear-gradient(90deg,
+            rgba(120, 80, 220, 0.07),
+            transparent 70%);
+}
+
+
+.contact-submit:hover::before {
+    width: 100%;
+}
+
+
+/* ==================================================
+   SUBMIT ARROW
+   ================================================== */
+
+.submit-arrow {
+    font-size: 20px;
+    font-weight: 300;
+
+    color: rgba(170, 120, 255, 0.65);
+
+    transition:
+        transform 0.4s ease,
+        color 0.3s ease;
+}
+
+
+.contact-submit:hover .submit-arrow {
+    transform: translate(4px, -4px);
+
+    color: rgba(200, 165, 255, 0.95);
+}
+
+
+/* ==================================================
+   ACTIVE / CLICK STATE
+   ================================================== */
+
+.contact-submit:active {
+    transform: translateY(1px);
+}
+
+
+/* ==================================================
+   TABLET
+   ================================================== */
+
+@media (max-width: 900px) {
+
+    .contact-form {
+        margin-top: 60px;
+    }
+
+    .form-field {
+        grid-template-columns: 110px 1fr;
+    }
+
+}
+
+
+/* ==================================================
+   MOBILE
+   ================================================== */
+
+@media (max-width: 600px) {
+
+    .contact-form {
+        margin-top: 55px;
+    }
+
+    .form-field {
+        grid-template-columns: 80px 1fr;
+        min-height: 72px;
+    }
+
+    .form-field label {
+        font-size: 8px;
+    }
+
+    .form-field input,
+    .form-field textarea {
+        font-size: 11px;
+        letter-spacing: 0.06em;
+    }
+
+    .form-field textarea {
+        min-height: 115px;
+        padding: 22px 0;
+    }
+
+    .contact-submit {
+        min-height: 78px;
+        padding: 0 8px;
+        font-size: 8px;
+    }
+
+    .contact-submit:hover {
+        padding-left: 15px;
+    }
+
+    .submit-arrow {
+        font-size: 17px;
+    }
+
+}
+
+
+/* ==================================================
+   REDUCED MOTION
+   ================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .form-field::after,
+    .contact-submit::before,
+    .contact-submit,
+    .submit-arrow {
+        transition: none;
+    }
+
+}

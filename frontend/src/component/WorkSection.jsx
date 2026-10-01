@@ -29,7 +29,7 @@ const WorkSection = () => {
                     </span>
 
                     <span className="project-status">
-                        COMPLETED
+                        ITERATING
                     </span>
                 </div>
 

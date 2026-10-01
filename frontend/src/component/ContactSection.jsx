@@ -1,3 +1,5 @@
+
+import { useState } from "react";
 import {
     FaGithub,
     FaLinkedinIn,
@@ -7,12 +9,36 @@ import {
 import "./ContactSection.css";
 
 const ContactSection = () => {
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        message: "",
+    });
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+
+        setFormData((previous) => ({
+            ...previous,
+            [name]: value,
+        }));
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        // Backend integration will be added in the next step.
+        console.log("Contact form data:", formData);
+    };
+
     return (
         <section
             id="contact"
             className="contact-section"
         >
             <div className="contact-container">
+
+                {/* STATUS */}
 
                 <div className="contact-status">
                     <span className="status-dot" />
@@ -22,6 +48,8 @@ const ContactSection = () => {
                     </span>
                 </div>
 
+
+                {/* HEADING */}
 
                 <div className="contact-heading">
 
@@ -41,6 +69,98 @@ const ContactSection = () => {
 
                 </div>
 
+
+                {/* CONTACT FORM */}
+
+                <form
+                    className="contact-form"
+                    onSubmit={handleSubmit}
+                >
+
+                    {/* NAME */}
+
+                    <div className="form-field">
+
+                        <label htmlFor="contact-name">
+                            NAME
+                        </label>
+
+                        <input
+                            id="contact-name"
+                            type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            placeholder="YOUR NAME"
+                            autoComplete="name"
+                            required
+                        />
+
+                    </div>
+
+
+                    {/* EMAIL */}
+
+                    <div className="form-field">
+
+                        <label htmlFor="contact-email">
+                            EMAIL
+                        </label>
+
+                        <input
+                            id="contact-email"
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder="YOU@EXAMPLE.COM"
+                            autoComplete="email"
+                            required
+                        />
+
+                    </div>
+
+
+                    {/* MESSAGE */}
+
+                    <div className="form-field form-field-message">
+
+                        <label htmlFor="contact-message">
+                            MESSAGE
+                        </label>
+
+                        <textarea
+                            id="contact-message"
+                            name="message"
+                            value={formData.message}
+                            onChange={handleChange}
+                            placeholder="TELL ME ABOUT YOUR PROJECT..."
+                            rows="5"
+                            required
+                        />
+
+                    </div>
+
+
+                    {/* SUBMIT */}
+
+                    <button
+                        type="submit"
+                        className="contact-submit"
+                    >
+                        <span>
+                            SEND TRANSMISSION
+                        </span>
+
+                        <span className="submit-arrow">
+                            ↗
+                        </span>
+                    </button>
+
+                </form>
+
+
+                {/* DIRECT CONTACT ACTIONS */}
 
                 <div className="contact-actions">
 
@@ -127,6 +247,8 @@ const ContactSection = () => {
 
                 </div>
 
+
+                {/* FOOTER */}
 
                 <footer className="contact-footer">
 
