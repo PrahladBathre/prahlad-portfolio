@@ -6,6 +6,7 @@ const WorkSection = lazy(() => import("./component/WorkSection.jsx"))
 const AboutSection = lazy(() => import("./component/AboutSection.jsx"))
 const Architecture = lazy(() => import("./component/Architecture.jsx"))
 const ContactSection = lazy(() => import("./component/ContactSection.jsx"))
+
 const App = () => {
   const [heroArriving, setHeroArriving] =
     useState(false);
