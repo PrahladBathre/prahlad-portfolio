@@ -1,152 +1,19 @@
+import { ArrowDownRight, Boxes, Braces, Database, GitPullRequest, Layers3 } from "lucide-react";
 import "./Architecture.css";
 
-const Architecture = () => {
-    return (
-        <section
-            id="architecture"
-            className="architecture-section"
-        >
-            <div className="architecture-container">
+const layers = [
+  { number: "01", label: "THE EXPERIENCE", title: "Interface", description: "Make the next action clear. Build responsive UI that feels considered, not merely assembled.", icon: Layers3, tools: ["React", "Next.js", "TypeScript", "CSS / Tailwind"] },
+  { number: "02", label: "THE APPLICATION", title: "Logic & APIs", description: "Keep responsibilities clear, validate input, and make application behavior predictable.", icon: Braces, tools: ["Node.js", "Express", "Python", "FastAPI"] },
+  { number: "03", label: "THE DATA", title: "Persistence", description: "Model information around the workflow and choose storage that suits the shape of the problem.", icon: Database, tools: ["MongoDB", "PostgreSQL", "SQL"] },
+  { number: "04", label: "THE DELIVERY", title: "Engineering loop", description: "Use version control, API testing, deployment, and iteration to make progress easier to trust.", icon: GitPullRequest, tools: ["Git / GitHub", "Postman", "Deployment", "Debugging"] },
+];
 
-                <div className="architecture-heading">
-                    <span className="architecture-eyebrow">
-                        SYSTEM / ARCHITECTURE
-                    </span>
-
-                    <h2>
-                        HOW I <span>BUILD</span>
-                    </h2>
-
-                    <p>
-                        From interface to infrastructure,
-                        every layer has a purpose.
-                    </p>
-                </div>
-
-                <div className="architecture-system">
-
-                    <div className="architecture-layer">
-                        <span className="layer-index">01</span>
-
-                        <div className="layer-content">
-                            <span className="layer-label">
-                                INTERFACE
-                            </span>
-
-                            <h3>Frontend</h3>
-
-                            <p>
-                                Building responsive interfaces
-                                focused on interaction, clarity
-                                and user experience.
-                            </p>
-
-                            <div className="layer-tech">
-                                <span>React</span>
-                                <span>JavaScript</span>
-                                <span>HTML5</span>
-                                <span>CSS3</span>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div className="architecture-connector">
-                        <span />
-                    </div>
-
-
-                    <div className="architecture-layer">
-                        <span className="layer-index">02</span>
-
-                        <div className="layer-content">
-                            <span className="layer-label">
-                                LOGIC / SERVICES
-                            </span>
-
-                            <h3>Backend</h3>
-
-                            <p>
-                                Designing APIs, authentication
-                                and application logic that connect
-                                the interface to the data.
-                            </p>
-
-                            <div className="layer-tech">
-                                <span>Node.js</span>
-                                <span>Express</span>
-                                <span>Python</span>
-                                <span>FastAPI</span>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div className="architecture-connector">
-                        <span />
-                    </div>
-
-
-                    <div className="architecture-layer">
-                        <span className="layer-index">03</span>
-
-                        <div className="layer-content">
-                            <span className="layer-label">
-                                DATA / STORAGE
-                            </span>
-
-                            <h3>Database</h3>
-
-                            <p>
-                                Structuring and managing data
-                                so applications remain reliable,
-                                searchable and maintainable.
-                            </p>
-
-                            <div className="layer-tech">
-                                <span>PostgreSQL</span>
-                                <span>MongoDB</span>
-                                <span>SQL</span>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div className="architecture-connector">
-                        <span />
-                    </div>
-
-
-                    <div className="architecture-layer">
-                        <span className="layer-index">04</span>
-
-                        <div className="layer-content">
-                            <span className="layer-label">
-                                DEVELOPMENT
-                            </span>
-
-                            <h3>Engineering</h3>
-
-                            <p>
-                                Connecting everything through
-                                version control, API testing,
-                                deployment and continuous iteration.
-                            </p>
-
-                            <div className="layer-tech">
-                                <span>Git</span>
-                                <span>GitHub</span>
-                                <span>Postman</span>
-                                <span>REST APIs</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-    );
-};
-
-export default Architecture;
+export default function Architecture() {
+  return (
+    <section className="architecture-section section-shell" id="architecture" aria-labelledby="architecture-title">
+      <div className="architecture-heading"><p className="section-kicker">My approach / 04</p><div className="architecture-heading-grid"><h2 className="section-title" id="architecture-title">One product.<br /><em>Connected layers.</em></h2><p className="section-intro">I’m interested in how the whole application behaves — not just the screen someone sees first.</p></div></div>
+      <div className="architecture-flow"><div className="architecture-flow-label"><Boxes size={15} /><span>APPLICATION STACK / CONCEPTUAL VIEW</span></div>{layers.map(({ number, label, title, description, icon: Icon, tools }, index) => <div className="architecture-layer" key={number}><div className="architecture-layer-index">{number}</div><div className="architecture-layer-icon"><Icon size={19} strokeWidth={1.5} /></div><div className="architecture-layer-copy"><p>{label}</p><h3>{title}</h3><span>{description}</span></div><div className="architecture-layer-tools">{tools.map((tool) => <span key={tool}>{tool}</span>)}</div>{index < layers.length - 1 && <div className="architecture-connector" aria-hidden="true"><i /></div>}</div>)}</div>
+      <div className="architecture-bottom"><div><span className="architecture-bottom-mark">↳</span><p>Good engineering is a series of deliberate trade-offs, made visible.</p></div><a href="#contact">Talk through a project <ArrowDownRight size={15} /></a></div>
+    </section>
+  );
+}

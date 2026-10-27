@@ -1,79 +1,111 @@
-import { useState, lazy, Suspense } from "react";
-import LazySection from "./component/LazySection.jsx"
-const CosmicIntro = lazy(() => import("./component/CosmicIntro.jsx"))
-const HeroSection = lazy(() => import("./component/HeroSection.jsx"))
-const WorkSection = lazy(() => import("./component/WorkSection.jsx"))
-const AboutSection = lazy(() => import("./component/AboutSection.jsx"))
-const Architecture = lazy(() => import("./component/Architecture.jsx"))
-const ContactSection = lazy(() => import("./component/ContactSection.jsx"))
+import { useEffect, useState } from "react";
+import logo from "./assets/PB_LOGO.svg";
+import HeroSection from "./component/HeroSection.jsx";
+import WorkSection from "./component/WorkSection.jsx";
+import ExperienceSection from "./component/ExperienceSection.jsx";
+import AboutSection from "./component/AboutSection.jsx";
+import Architecture from "./component/Architecture.jsx";
+import ContactSection from "./component/ContactSection.jsx";
 
-const App = () => {
-  const [heroArriving, setHeroArriving] =
-    useState(false);
+const sections = [
+  { id: "work", label: "Work" },
+  { id: "experience", label: "Experience" },
+  { id: "about", label: "About" },
+  { id: "architecture", label: "Approach" },
+  { id: "contact", label: "Contact" },
+];
 
-  const [showCosmic, setShowCosmic] =
-    useState(true);
+function FloatingNavigation() {
+  const [activeSection, setActiveSection] = useState("work");
 
-  const [cosmicFading, setCosmicFading] =
-    useState(false);
-
-  const handleTransitionStart = () => {
-    setHeroArriving(true);
-    setCosmicFading(true);
-  };
-
-  const handleComplete = () => {
-    setShowCosmic(false);
-  };
+  useEffect(() => {
+    let frame = 0;
+    const updateActiveSection = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const marker = window.innerHeight * 0.36;
+        const visibleSections = sections
+          .map(({ id }) => ({ id, node: document.getElementById(id) }))
+          .filter(({ node }) => node);
+        let current = visibleSections[0]?.id || "work";
+        for (const { id, node } of visibleSections) {
+          if (node.getBoundingClientRect().top <= marker) current = id;
+        }
+        setActiveSection(current);
+      });
+    };
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
+  }, []);
 
   return (
-    <>
-
-      <div
-        className={`portfolio-page ${!showCosmic
-          ? "portfolio-scrollable"
-          : ""
-          }`}
-      >
-        <div
-          className={`hero-layer ${heroArriving
-            ? "hero-arriving"
-            : ""
-            }`}
-        >
-          <HeroSection />
-        </div>
-        <LazySection>
-          <Suspense fallback={null}>
-            <div className="work-layer">
-              <WorkSection />
-            </div>
-            <AboutSection />
-            <Architecture />
-            <ContactSection />
-          </Suspense>
-        </LazySection>
+    <nav className="floating-nav" aria-label="Main navigation">
+      <a className="floating-nav-mark" href="#top" aria-label="Prahlad Bathre, home">
+        <img src={logo} alt="PB" />
+      </a>
+      <div className="floating-nav-links">
+        {sections.map(({ id, label }) => (
+          <a key={id} className={activeSection === id ? "is-active" : ""} href={`#${id}`}>
+            {label}
+          </a>
+        ))}
       </div>
+      <a className="floating-nav-availability" href="#contact"><span /> Open to opportunities</a>
+    </nav>
+  );
+}
 
-      {showCosmic && (
-        <div
-          className={`cosmic-layer ${cosmicFading
-            ? "cosmic-fading"
-            : ""
-            }`}
-        >
-          <CosmicIntro
-            onTransitionStart={
-              handleTransitionStart
-            }
-            onComplete={
-              handleComplete
-            }
-          />
+export default function App() {
+  const [loading, setLoading] = useState(true);
+  const [loaderLeaving, setLoaderLeaving] = useState(false);
+
+  useEffect(() => {
+    const startedAt = performance.now();
+    const minimumDuration = 1500;
+    const remaining = Math.max(0, minimumDuration - (performance.now() - startedAt));
+    const timer = window.setTimeout(() => {
+      setLoaderLeaving(true);
+      window.setTimeout(() => setLoading(false), 420);
+    }, remaining);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const updatePointer = (event) => {
+      document.documentElement.style.setProperty("--pointer-x", `${event.clientX}px`);
+      document.documentElement.style.setProperty("--pointer-y", `${event.clientY}px`);
+    };
+    const finePointer = window.matchMedia("(pointer: fine)").matches;
+    if (finePointer) window.addEventListener("pointermove", updatePointer, { passive: true });
+    return () => window.removeEventListener("pointermove", updatePointer);
+  }, []);
+
+  return (
+    <div className="portfolio-shell" id="top">
+      <div className="ambient-field" aria-hidden="true" />
+      <FloatingNavigation />
+      <main>
+        <HeroSection />
+        <WorkSection />
+        <ExperienceSection />
+        <AboutSection />
+        <Architecture />
+        <ContactSection />
+      </main>
+      {loading && (
+        <div className={`portfolio-loader${loaderLeaving ? " portfolio-loader--leaving" : ""}`} role="status" aria-label="Loading portfolio">
+          <div className="loader-mark-wrap"><img src={logo} alt="" /></div>
+          <p className="loader-name">PRAHLAD BATHRE<span>.</span></p>
+          <div className="loader-track"><span /></div>
+          <p className="loader-caption">ASSEMBLING THE EXPERIENCE</p>
         </div>
       )}
-    </>
+    </div>
   );
-};
-
-export default App;
+}

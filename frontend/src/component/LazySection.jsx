@@ -9,9 +9,6 @@ const LazySection = ({ children, minHeight = "100vh" }) => {
 
         if (!element) return;
 
-        const scrollContainer =
-            element.closest(".portfolio-scrollable");
-
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
@@ -20,7 +17,7 @@ const LazySection = ({ children, minHeight = "100vh" }) => {
                 }
             },
             {
-                root: scrollContainer,
+                root: null,
                 rootMargin: "300px",
                 threshold: 0,
             }
