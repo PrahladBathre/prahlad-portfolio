@@ -13,11 +13,10 @@ const CosmicIntro = ({
     const onCompleteRef =
         useRef(onComplete);
 
-    onTransitionStartRef.current =
-        onTransitionStart;
-
-    onCompleteRef.current =
-        onComplete;
+    useEffect(() => {
+        onTransitionStartRef.current = onTransitionStart;
+        onCompleteRef.current = onComplete;
+    }, [onTransitionStart, onComplete]);
 
     useEffect(() => {
         const canvas = canvasRef.current;
