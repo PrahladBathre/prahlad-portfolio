@@ -1,6 +1,4 @@
 import { ArrowDownRight, Boxes, Braces, Database, GitPullRequest, Layers3 } from "lucide-react";
-import "./Architecture.css";
-
 const layers = [
   { number: "01", label: "THE EXPERIENCE", title: "Interface", description: "Make the next action clear. Build responsive UI that feels considered, not merely assembled.", icon: Layers3, tools: ["React", "Next.js", "TypeScript", "CSS / Tailwind"] },
   { number: "02", label: "THE APPLICATION", title: "Logic & APIs", description: "Keep responsibilities clear, validate input, and make application behavior predictable.", icon: Braces, tools: ["Node.js", "Express", "Python", "FastAPI"] },

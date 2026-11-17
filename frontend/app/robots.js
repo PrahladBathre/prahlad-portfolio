@@ -1,0 +1,1 @@
+export default function robots() { return { rules: { userAgent: "*", allow: "/" }, sitemap: "https://prahlad-portfolio-beta.vercel.app/sitemap.xml", host: "https://prahlad-portfolio-beta.vercel.app" }; }

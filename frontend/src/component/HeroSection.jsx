@@ -1,5 +1,5 @@
 import { ArrowDownRight, ArrowUpRight, Code2, Sparkles, Braces, Database, Layers3 } from "lucide-react";
-import logo from "../assets/PB_LOGO.svg";
+const logo = "/PB_LOGO.svg";
 import "./HeroSection.css";
 
 export default function HeroSection() {

@@ -6,9 +6,7 @@ import {
   MoveUpRight,
 } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
-import logo from "../assets/PB_LOGO.svg";
-import "./ContactSection.css";
-
+const logo = "/PB_LOGO.svg";
 export default function ContactSection() {
   return (
     <section
