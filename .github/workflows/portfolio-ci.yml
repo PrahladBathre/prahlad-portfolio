@@ -11,6 +11,7 @@ on:
     branches: [main]
     paths:
       - "frontend/**"
+      - "vercel.json"
       - ".github/workflows/portfolio-ci.yml"
 
 jobs:
