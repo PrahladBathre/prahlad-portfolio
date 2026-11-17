@@ -47,7 +47,7 @@ export default function ContactSection() {
               >
                 <FaGithub size={16} />
                 GitHub
-                <ArrowUpRight size={14} />
+                <MoveUpRight size={14} />
               </a>
 
               <a
@@ -58,7 +58,7 @@ export default function ContactSection() {
               >
                 <FaLinkedinIn size={16} />
                 LinkedIn
-                <ArrowUpRight size={14} />
+                <MoveUpRight size={14} />
               </a>
             </div>
           </div>
@@ -98,7 +98,7 @@ export default function ContactSection() {
                 rel="noreferrer"
               >
                 Connect on LinkedIn
-                <ArrowUpRight size={16} />
+                <MoveUpRight size={16} />
               </a>
             </div>
 
