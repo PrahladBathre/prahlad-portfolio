@@ -63,6 +63,73 @@ function FloatingNavigation() {
   );
 }
 
+
+function ScrollProgress() {
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+        document.documentElement.style.setProperty("--scroll-progress", `${progress}%`);
+      });
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+      document.documentElement.style.removeProperty("--scroll-progress");
+    };
+  }, []);
+
+  return <div className="scroll-progress" aria-hidden="true" />;
+}
+
+function useScrollReveal() {
+  useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion || !("IntersectionObserver" in window)) return;
+
+    const selectors = [
+      ".hero-copy > *", ".hero-visual-stage", ".hero-bottom-note",
+      ".section-heading-row > *", ".case-card", ".experience-entry",
+      ".experience-bottom-note", ".about-portrait-card", ".about-copy > *",
+      ".architecture-flow-label", ".architecture-layer", ".architecture-bottom",
+      ".contact-topline", ".contact-heading > *", ".contact-panel",
+      ".contact-resume-row",
+    ];
+    const targets = document.querySelectorAll(selectors.join(","));
+    if (!targets.length) return;
+
+    document.documentElement.classList.add("reveal-enabled");
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-revealed");
+        currentObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -48px 0px" });
+
+    targets.forEach((target, index) => {
+      target.style.setProperty("--reveal-delay", `${(index % 5) * 75}ms`);
+      observer.observe(target);
+    });
+
+    return () => {
+      observer.disconnect();
+      document.documentElement.classList.remove("reveal-enabled");
+      targets.forEach((target) => {
+        target.classList.remove("is-revealed");
+        target.style.removeProperty("--reveal-delay");
+      });
+    };
+  }, []);
+}
+
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [loaderLeaving, setLoaderLeaving] = useState(false);
@@ -74,6 +141,8 @@ export default function App() {
     }, 1500);
     return () => window.clearTimeout(timer);
   }, []);
+
+  useScrollReveal();
 
   useEffect(() => {
     const updatePointer = (event) => {
@@ -87,6 +156,7 @@ export default function App() {
 
   return (
     <div className="portfolio-shell" id="top">
+      <ScrollProgress />
       <div className="ambient-field" aria-hidden="true" />
       <FloatingNavigation />
       <main>
