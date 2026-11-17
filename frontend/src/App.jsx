@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 const logo = "/PB_LOGO.svg";
 import HeroSection from "./component/HeroSection.jsx";
@@ -66,13 +68,10 @@ export default function App() {
   const [loaderLeaving, setLoaderLeaving] = useState(false);
 
   useEffect(() => {
-    const startedAt = performance.now();
-    const minimumDuration = 1500;
-    const remaining = Math.max(0, minimumDuration - (performance.now() - startedAt));
     const timer = window.setTimeout(() => {
       setLoaderLeaving(true);
       window.setTimeout(() => setLoading(false), 420);
-    }, remaining);
+    }, 1500);
     return () => window.clearTimeout(timer);
   }, []);
 
