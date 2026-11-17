@@ -96,7 +96,7 @@ function useScrollReveal() {
 
     const selectors = [
       ".hero-copy > *", ".hero-visual-stage", ".hero-bottom-note",
-      ".section-heading-row > *", ".case-card", ".experience-entry",
+      ".section-heading-row > *", ".experience-heading > *", ".about-topline > *", ".architecture-heading > *", ".case-card", ".experience-entry",
       ".experience-bottom-note", ".about-portrait-card", ".about-copy > *",
       ".architecture-flow-label", ".architecture-layer", ".architecture-bottom",
       ".contact-topline", ".contact-heading > *", ".contact-panel",
@@ -135,11 +135,15 @@ export default function App() {
   const [loaderLeaving, setLoaderLeaving] = useState(false);
 
   useEffect(() => {
+    let exitTimer;
     const timer = window.setTimeout(() => {
       setLoaderLeaving(true);
-      window.setTimeout(() => setLoading(false), 420);
+      exitTimer = window.setTimeout(() => setLoading(false), 420);
     }, 1500);
-    return () => window.clearTimeout(timer);
+    return () => {
+      window.clearTimeout(timer);
+      window.clearTimeout(exitTimer);
+    };
   }, []);
 
   useScrollReveal();
