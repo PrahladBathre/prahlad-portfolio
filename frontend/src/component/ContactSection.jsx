@@ -1,5 +1,4 @@
 import {
-  ArrowUpRight,
   Download,
   FileText,
   Mail,
