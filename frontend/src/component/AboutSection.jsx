@@ -1,5 +1,5 @@
 import { ArrowDown, Compass, GitBranch, Layers3 } from "lucide-react";
-import portrait from "../assets/new-portfolio.png";
+const portrait = "/new-portfolio.png";
 import "./AboutSection.css";
 
 export default function AboutSection() {

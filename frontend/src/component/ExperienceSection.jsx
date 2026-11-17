@@ -1,6 +1,4 @@
 import { ArrowUpRight, LockKeyhole, PanelsTopLeft } from "lucide-react";
-import "./ExperienceSection.css";
-
 export default function ExperienceSection() {
   return (
     <section className="experience-section section-shell" id="experience" aria-labelledby="experience-title">

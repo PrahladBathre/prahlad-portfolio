@@ -1,6 +1,4 @@
 import { ArrowUpRight, ArrowRight, Layers3, ShieldCheck, CircleDashed, Database } from "lucide-react";
-import "./WorkSection.css";
-
 const Stack = ({ items }) => <div className="case-stack">{items.map((item) => <span key={item}>{item}</span>)}</div>;
 
 export default function WorkSection() {

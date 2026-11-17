@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import logo from "./assets/PB_LOGO.svg";
+const logo = "/PB_LOGO.svg";
 import HeroSection from "./component/HeroSection.jsx";
 import WorkSection from "./component/WorkSection.jsx";
 import ExperienceSection from "./component/ExperienceSection.jsx";
