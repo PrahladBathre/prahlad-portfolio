@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import logo from "./assets/PB_LOGO.svg";
 import HeroSection from "./component/HeroSection.jsx";
 import WorkSection from "./component/WorkSection.jsx";
@@ -106,6 +107,7 @@ export default function App() {
           <p className="loader-caption">ASSEMBLING THE EXPERIENCE</p>
         </div>
       )}
+      <Analytics />
     </div>
   );
 }
