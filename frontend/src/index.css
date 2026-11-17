@@ -29,3 +29,5 @@ section[id]{scroll-margin-top:115px}
 @media(max-width:760px){.floating-nav{top:10px;width:calc(100% - 20px);min-height:56px;padding:8px 10px 8px 15px;border-radius:15px}.floating-nav-links{gap:12px}.floating-nav-links a{font-size:9px;letter-spacing:.06em}.floating-nav-availability{display:none}.section-shell{width:calc(100% - 40px)}.ambient-field{background:radial-gradient(300px circle at 75% 8%,rgba(132,90,218,.09),transparent 70%)}}
 @media(max-width:420px){.floating-nav-links{gap:9px}.floating-nav-links a{font-size:8px}.floating-nav-mark{font-size:13px;gap:5px}.floating-nav-mark>img{width:24px;height:24px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.portfolio-loader--leaving{transition:none}}
+
+@import "./visual-refresh.css";
