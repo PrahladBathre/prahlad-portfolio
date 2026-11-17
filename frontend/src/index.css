@@ -29,3 +29,35 @@ section[id]{scroll-margin-top:115px}
 @media(max-width:760px){.floating-nav{top:10px;width:calc(100% - 20px);min-height:56px;padding:8px 10px 8px 15px;border-radius:15px}.floating-nav-links{gap:12px}.floating-nav-links a{font-size:9px;letter-spacing:.06em}.floating-nav-availability{display:none}.section-shell{width:calc(100% - 40px)}.ambient-field{background:radial-gradient(300px circle at 75% 8%,rgba(132,90,218,.09),transparent 70%)}}
 @media(max-width:420px){.floating-nav-links{gap:9px}.floating-nav-links a{font-size:8px}.floating-nav-mark{font-size:13px;gap:5px}.floating-nav-mark>img{width:24px;height:24px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.portfolio-loader--leaving{transition:none}}
+
+
+/* Violet Noir motion system */
+.scroll-progress{position:fixed;inset:0 auto auto 0;z-index:1001;width:var(--scroll-progress,0%);height:2px;background:linear-gradient(90deg,#8e65ff,#d4c1ff);box-shadow:0 0 14px rgba(166,129,255,.65);pointer-events:none;transition:width .08s linear}
+html{scroll-behavior:smooth}
+.hero-section,.work-section,.experience-section,.about-section,.architecture-section,.contact-section{position:relative}
+.case-card,.experience-entry,.about-portrait-card,.architecture-layer,.contact-panel{will-change:transform}
+.case-card{transition:transform .45s cubic-bezier(.2,.75,.25,1),border-color .35s ease,box-shadow .35s ease}
+.case-card:hover{transform:translateY(-5px);box-shadow:0 28px 90px rgba(0,0,0,.28),0 0 42px rgba(145,104,255,.07)}
+.architecture-layer{transition:background .3s ease,border-color .3s ease,transform .35s ease}
+.architecture-layer:hover{transform:translateX(5px);background:rgba(182,154,255,.035)}
+.reveal-enabled .hero-copy>*,
+.reveal-enabled .hero-visual-stage,
+.reveal-enabled .hero-bottom-note,
+.reveal-enabled .section-heading-row>*,
+.reveal-enabled .case-card,
+.reveal-enabled .experience-entry,
+.reveal-enabled .experience-bottom-note,
+.reveal-enabled .about-portrait-card,
+.reveal-enabled .about-copy>*,
+.reveal-enabled .architecture-flow-label,
+.reveal-enabled .architecture-layer,
+.reveal-enabled .architecture-bottom,
+.reveal-enabled .contact-topline,
+.reveal-enabled .contact-heading>*,
+.reveal-enabled .contact-panel,
+.reveal-enabled .contact-resume-row{opacity:0;transform:translate3d(0,28px,0);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1);transition-delay:var(--reveal-delay,0ms)}
+.reveal-enabled .hero-visual-stage{transform:translate3d(0,18px,0) scale(.975)}
+.reveal-enabled .is-revealed{opacity:1;transform:translate3d(0,0,0);transition-delay:var(--reveal-delay,0ms)}
+@media(hover:hover) and (pointer:fine){.case-card:hover .case-visual{transform:translateY(-3px)}.case-visual{transition:transform .55s cubic-bezier(.2,.75,.25,1)}}
+@media(max-width:760px){.scroll-progress{height:2px}.case-card:hover{transform:none}.architecture-layer:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){.scroll-progress{display:none}.case-card,.architecture-layer,.case-visual{transition:none!important;transform:none!important}}
