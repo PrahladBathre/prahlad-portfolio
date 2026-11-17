@@ -1,3 +1,5 @@
+@import "./visual-refresh.css";
+
 @font-face{font-family:Inter;src:url('./assets/fonts/Inter-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
 @font-face{font-family:Inter;src:url('./assets/fonts/Inter-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
 @font-face{font-family:Inter;src:url('./assets/fonts/Inter-SemiBold.woff2') format('woff2');font-weight:600;font-display:swap}
@@ -30,4 +32,3 @@ section[id]{scroll-margin-top:115px}
 @media(max-width:420px){.floating-nav-links{gap:9px}.floating-nav-links a{font-size:8px}.floating-nav-mark{font-size:13px;gap:5px}.floating-nav-mark>img{width:24px;height:24px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.portfolio-loader--leaving{transition:none}}
 
-@import "./visual-refresh.css";
