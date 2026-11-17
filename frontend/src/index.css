@@ -47,3 +47,37 @@ section[id]{scroll-margin-top:115px}
 @media(hover:hover) and (pointer:fine){.case-card:hover .case-visual{transform:translateY(-3px)}.case-visual{transition:transform .55s cubic-bezier(.2,.75,.25,1)}}
 @media(max-width:760px){.scroll-progress{height:2px}.case-card:hover,.architecture-layer:hover{transform:none}}
 @media(prefers-reduced-motion:reduce){.scroll-progress{display:none}.case-card,.architecture-layer,.case-visual{transition:none!important;transform:none!important}.reveal-enabled .hero-copy>*,.reveal-enabled .hero-visual-stage,.reveal-enabled .hero-bottom-note,.reveal-enabled .section-heading-row>*,.reveal-enabled .case-card,.reveal-enabled .experience-entry,.reveal-enabled .experience-bottom-note,.reveal-enabled .about-portrait-card,.reveal-enabled .about-copy>*,.reveal-enabled .architecture-flow-label,.reveal-enabled .architecture-layer,.reveal-enabled .architecture-bottom,.reveal-enabled .contact-topline,.reveal-enabled .contact-heading>*,.reveal-enabled .contact-panel,.reveal-enabled .contact-resume-row{opacity:1;transform:none;transition:none}}
+
+
+/* Self-hosted editorial display typography.
+   Bodoni Moda / Cormorant Garamond / DM Serif Display are OFL-licensed
+   visual alternatives while the requested commercial webfont licenses are unavailable. */
+.hero-copy h1,
+.contact-heading h2{
+  font-family:var(--font-vegawanty-inspired), Georgia, serif;
+  font-weight:500;
+  letter-spacing:-.055em;
+}
+.section-title{
+  font-family:var(--font-flaviotte-inspired), Georgia, serif;
+  font-weight:500;
+  letter-spacing:-.045em;
+}
+.hero-copy h1 span,
+.section-title em,
+.contact-heading h2 em{
+  font-family:var(--font-flaviotte-inspired);
+  font-style:normal;
+  font-weight:500;
+}
+.case-copy h3,
+.experience-content h3,
+.architecture-layer-copy h3,
+.contact-panel-body h3{
+  font-family:var(--font-gavency-inspired), Georgia, serif;
+  font-weight:400;
+  letter-spacing:-.035em;
+}
+@media(max-width:650px){
+  .hero-copy h1,.section-title,.contact-heading h2{letter-spacing:-.035em}
+}

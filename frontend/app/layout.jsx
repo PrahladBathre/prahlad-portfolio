@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/next";
+import { Bodoni_Moda, Cormorant_Garamond, DM_Serif_Display } from "next/font/google";
 import "../src/index.css";
 import "../src/component/HeroSection.css";
 import "../src/component/WorkSection.css";
@@ -6,6 +7,30 @@ import "../src/component/ExperienceSection.css";
 import "../src/component/AboutSection.css";
 import "../src/component/Architecture.css";
 import "../src/component/ContactSection.css";
+
+const vegawantyInspired = Bodoni_Moda({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+  preload: true,
+  variable: "--font-vegawanty-inspired",
+});
+
+const flaviotteInspired = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+  preload: true,
+  variable: "--font-flaviotte-inspired",
+});
+
+const gavencyInspired = DM_Serif_Display({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  preload: true,
+  variable: "--font-gavency-inspired",
+});
 
 const siteUrl = "https://prahlad-portfolio-beta.vercel.app";
 
@@ -27,5 +52,5 @@ export const metadata = {
 };
 export const viewport = { themeColor: "#08070b", width: "device-width", initialScale: 1 };
 export default function RootLayout({ children }) {
-  return <html lang="en"><body>{children}<Analytics /></body></html>;
+  return <html lang="en" className={`${vegawantyInspired.variable} ${flaviotteInspired.variable} ${gavencyInspired.variable}`}><body>{children}<Analytics /></body></html>;
 }
