@@ -52,19 +52,14 @@ section[id]{scroll-margin-top:115px}
 /* Self-hosted editorial display typography.
    Bodoni Moda / Cormorant Garamond / DM Serif Display are OFL-licensed
    visual alternatives while the requested commercial webfont licenses are unavailable. */
-:root{
-  --font-vegawanty-inspired: var(--font-vegawanty-inspired), Georgia, serif;
-  --font-flaviotte-inspired: var(--font-flaviotte-inspired), Georgia, serif;
-  --font-gavency-inspired: var(--font-gavency-inspired), Georgia, serif;
-}
 .hero-copy h1,
 .contact-heading h2{
-  font-family:var(--font-vegawanty-inspired);
+  font-family:var(--font-vegawanty-inspired), Georgia, serif;
   font-weight:500;
   letter-spacing:-.055em;
 }
 .section-title{
-  font-family:var(--font-flaviotte-inspired);
+  font-family:var(--font-flaviotte-inspired), Georgia, serif;
   font-weight:500;
   letter-spacing:-.045em;
 }
@@ -79,7 +74,7 @@ section[id]{scroll-margin-top:115px}
 .experience-content h3,
 .architecture-layer-copy h3,
 .contact-panel-body h3{
-  font-family:var(--font-gavency-inspired);
+  font-family:var(--font-gavency-inspired), Georgia, serif;
   font-weight:400;
   letter-spacing:-.035em;
 }
