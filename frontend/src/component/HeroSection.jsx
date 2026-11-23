@@ -9,7 +9,7 @@ export default function HeroSection() {
         <div className="hero-copy">
           <div className="hero-kicker"><span className="hero-kicker-line" /> PORTFOLIO / 2026 <span className="hero-kicker-divider">·</span> FULL STACK DEVELOPMENT</div>
           <p className="hero-pretitle">I turn ideas into <span>working systems.</span></p>
-          <h1 id="hero-title">Building the web<br />with <span>intent.</span></h1>
+          <h1 id="hero-title"><span className="hero-heading-line">Building the web</span><br />With <span>intent.</span></h1>
           <p className="hero-description">I’m Prahlad — a full-stack developer drawn to the space where thoughtful interfaces meet dependable application logic.</p>
           <div className="hero-cta-row">
             <a className="hero-cta hero-cta-primary" href="#work">Explore selected work <ArrowUpRight size={16} strokeWidth={1.7} /></a>
