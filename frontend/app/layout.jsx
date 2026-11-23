@@ -1,5 +1,5 @@
 import { Analytics } from "@vercel/analytics/next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "../src/index.css";
 import "../src/component/HeroSection.css";
 import "../src/component/WorkSection.css";
@@ -8,18 +8,31 @@ import "../src/component/AboutSection.css";
 import "../src/component/Architecture.css";
 import "../src/component/ContactSection.css";
 
-const geistSans = Geist({
-  subsets: ["latin"],
+const outfit = localFont({
+  src: [
+    { path: "../public/fonts/outfit/Outfit-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../public/fonts/outfit/Outfit-Medium.woff2", weight: "500", style: "normal" },
+    { path: "../public/fonts/outfit/Outfit-SemiBold.woff2", weight: "600", style: "normal" },
+    { path: "../public/fonts/outfit/Outfit-Bold.woff2", weight: "700", style: "normal" },
+    { path: "../public/fonts/outfit/Outfit-ExtraBold.woff2", weight: "800", style: "normal" },
+    { path: "../public/fonts/outfit/Outfit-Black.woff2", weight: "900", style: "normal" },
+  ],
+  display: "swap",
+  preload: true,
+  variable: "--font-outfit",
+});
+
+const geistSans = localFont({
+  src: [
+    { path: "../public/fonts/geist/Geist-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../public/fonts/geist/Geist-Medium.woff2", weight: "500", style: "normal" },
+    { path: "../public/fonts/geist/Geist-Bold.woff2", weight: "700", style: "normal" },
+    { path: "../public/fonts/geist/Geist-ExtraBold.woff2", weight: "800", style: "normal" },
+    { path: "../public/fonts/geist/Geist-Black.woff2", weight: "900", style: "normal" },
+  ],
   display: "swap",
   preload: true,
   variable: "--font-geist-sans",
-});
-
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  display: "swap",
-  preload: false,
-  variable: "--font-geist-mono",
 });
 
 const siteUrl = "https://prahlad-portfolio-beta.vercel.app";
@@ -40,7 +53,13 @@ export const metadata = {
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
   category: "technology",
 };
+
 export const viewport = { themeColor: "#08070b", width: "device-width", initialScale: 1 };
+
 export default function RootLayout({ children }) {
-  return <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}><body>{children}<Analytics /></body></html>;
+  return (
+    <html lang="en" className={`${outfit.variable} ${geistSans.variable}`}>
+      <body>{children}<Analytics /></body>
+    </html>
+  );
 }
